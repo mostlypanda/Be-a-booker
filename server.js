@@ -1,7 +1,14 @@
 const express=require('express');
 const app =express();
 const expresslayouts=require('express-ejs-layouts');
-
+const mongoose=require('mongoose');
+mongoose.Promise=global.Promise;
+mongoose.connect('mongodb+srv://test:test@cluster0-bi1rv.mongodb.net/blogger?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology: true },function(err){
+    if(err) console.log(err);
+    else{
+        console.log("db is conected");
+    }
+})
 
 const indexrouter=require('./routes/index');
 
