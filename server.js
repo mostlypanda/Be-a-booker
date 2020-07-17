@@ -11,7 +11,7 @@ mongoose.connect('mongodb+srv://test:test@cluster0-bi1rv.mongodb.net/blogger?ret
 })
 
 const indexrouter=require('./routes/index');
-
+const bloggerrouter=require('./routes/bloggers');
 
 app.set('view engine','ejs');
 app.set('views',__dirname+'/views');
@@ -20,7 +20,7 @@ app.use(expresslayouts);
 app.use(express.static('public'));
 
 app.use('/',indexrouter);
-
+app.use('/bloggers',bloggerrouter);
 
 app.listen(process.env.PORT||3000,()=>{
     console.log("app is live");

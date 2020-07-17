@@ -3,7 +3,7 @@ const router=express.Router();
 
 // All bloggers
 router.get('/',(req,res)=>{
-    res.render('/bloggers/index');
+    res.render('bloggers/index');
 });
 
 // new blogger
