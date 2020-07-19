@@ -15,6 +15,7 @@ mongoose.connect('mongodb+srv://test:test@cluster0-bi1rv.mongodb.net/blogger?ret
 
 const indexrouter=require('./routes/index');
 const bloggerrouter=require('./routes/bloggers');
+const blogrouter=require('./routes/blogs');
 
 app.set('view engine','ejs');
 app.set('views',__dirname+'/views');
@@ -26,6 +27,7 @@ app.use(bodyparser.json());
 
 app.use('/',indexrouter);
 app.use('/bloggers',bloggerrouter);
+app.use('/blog',blogrouter);
 
 app.listen(process.env.PORT||3000,()=>{
     console.log("app is live");
