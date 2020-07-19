@@ -3,8 +3,17 @@ const router=express.Router();
 const Blogger=require('../models/blogger');
 
 // All bloggers
-router.get('/',(req,res)=>{
-    res.render('bloggers/index');
+router.get('/',async (req,res)=>{
+
+    try{
+        const bloggers=await Blogger.find({});
+        res.render('bloggers/index',{blogger:bloggers});
+
+    }catch{
+        res.redirect('/');
+    }
+
+   
 });
 
 // new blogger
