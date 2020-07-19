@@ -4,10 +4,16 @@ const Blogger=require('../models/blogger');
 
 // All bloggers
 router.get('/',async (req,res)=>{
-
+    let searchoptions={};
+    if(req.query.name!=null && req.query.name!==''){
+        searchoptions.name=new RegExp(req.query.name,'i')
+    };
     try{
-        const bloggers=await Blogger.find({});
-        res.render('bloggers/index',{blogger:bloggers});
+        const bloggers=await Blogger.find(searchoptions);
+        res.render('bloggers/index',{
+            blogger:bloggers,
+            searchoptions:req.query
+        });
 
     }catch{
         res.redirect('/');
