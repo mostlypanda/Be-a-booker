@@ -2,7 +2,7 @@ const mongoose=require('mongoose');
 
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-console.log(date);
+//console.log(date);
 const blogchema=mongoose.Schema({
     title :{
         type : String,
