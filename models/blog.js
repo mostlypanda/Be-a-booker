@@ -1,5 +1,7 @@
 const mongoose=require('mongoose');
 
+const coverimagebasepath='uploads/blogcovers'
+
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 //console.log(date);
@@ -32,3 +34,4 @@ const blogchema=mongoose.Schema({
 
 
 module.exports=mongoose.model('blog',blogchema);
+module.exports.coverimagebasepath=coverimagebasepath
