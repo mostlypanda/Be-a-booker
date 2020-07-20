@@ -3,15 +3,14 @@ const router=express.Router();
 const Blog=require('../models/blog');
 const path=require('path')
 const Blogger=require('../models/blogger');
-const { response } = require('express');
 const uploadPath=path.join('public',Blog.coverimagebasepath)
 const multer=require('multer');
-const { render } = require('ejs');
-const imagemimetypes=['images/jpeg','images/png']
+
+const imagemimetypes=['images/jpeg','images/png','images/gif']
 const upload=multer({
     dest: uploadPath,
     fileFilter:(req,file,callback)=>{
-        callback(null,)
+        callback(null,imagemimetypes.includes(file.mimetype));
     }
 })
 
@@ -24,6 +23,7 @@ router.get('/',async (req,res)=>{
 router.get('/new',async (req,res)=>{
     rendernewpage(res, new Blog())
 });
+
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
@@ -45,7 +45,7 @@ async function rendernewpage(res,blog,error=false){
 
 // create a blog
 router.post('/',upload.single('cover'), async (req,res)=>{
-    const filename=req.file!=null ? req.file.filename : null
+    const filename=req.file!=null ? req.file.filename : null;
     const blog=new Blog({
         blogger: req.body.blogger,
         title: req.body.title,
@@ -54,6 +54,7 @@ router.post('/',upload.single('cover'), async (req,res)=>{
         coverimagename: filename
     });
     console.log(blog);
+    
     try{
      const newblog=await blog.save();
      res.redirect('blog')   
