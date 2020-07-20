@@ -1,3 +1,4 @@
+<div>
 <label>Name</label>
 <input type="text" name="title" value="<%= blog.title %>">
 <label>Blogger</label>
@@ -10,3 +11,14 @@
         <% } %>
     <%})%>
 </select>
+</div>
+
+<div>
+    <label>Cover</label>
+    <input type="file" name="cover">
+</div>
+
+<div>
+    <label>Content</label>
+    <textarea name="content"><%= blog.content %></textarea>
+</div>
