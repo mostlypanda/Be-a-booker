@@ -1,18 +1,25 @@
 const mongoose = require('mongoose')
-var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-const blogSchema = new mongoose.Schema({
+
+const bookSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
   },
-  content: {
-    type: String,
-    required : true,
+  description: {
+    type: String
   },
   publishDate: {
-    type : String,
-    default:date
+    type: Date,
+    required: true
+  },
+  pageCount: {
+    type: Number,
+    required: true
+  },
+  createdAt: {
+    type: Date,
+    required: true,
+    default: Date.now
   },
   coverImage: {
     type: Buffer,
@@ -35,4 +42,4 @@ bookSchema.virtual('coverImagePath').get(function() {
   }
 })
 
-module.exports = mongoose.model('Blog', blogSchema)
+module.exports = mongoose.model('Book', bookSchema)
