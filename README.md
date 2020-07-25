@@ -5,7 +5,7 @@ A dynamic book-author web-application designed using node.js,express and mongodb
 ---
 ## Requirements
 
-For development, you will only need Node.js and a node global package, Yarn, installed in your environement.
+For development, you will need Node.js and a node global package along with mongodb also, Yarn, installed in your environement.
 
 ### Node
 - #### Node installation on Windows
@@ -45,8 +45,8 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 
 ## Install
 
-    $ git clone https://github.com/YOUR_USERNAME/PROJECT_TITLE
-    $ cd PROJECT_TITLE
+    $ git clone https://github.com/mostlypanda/Be-a-booker.git
+    $ cd Be-a-booker
     $ yarn install
 
 ## Configure app
