@@ -1,6 +1,6 @@
 # Be-a-booker
 
-A dynamic book-author web-application designed using node.js,express and mongodb with the ejs-template engine. This app can add authors then author can add details about their published books and user can see every book and search any book either directly by name or by using the time-period of book-published.Here a very-interactive user interface their you can see any athor any book published by him in a very nice way
+A dynamic book-author web-application designed using node.js,express and mongodb with the ejs-template engine. This app can add authors then author can add details about their published books and user can see every book and search any book either directly by name or by using the time-period of book-published.Here a very-interactive user interface their you can see any athor any book published by him in a very nice way. Here you can search any author and customise as well
 
 ---
 ## Requirements
